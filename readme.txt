@@ -1,0 +1,1 @@
+This is a Java web application built using Strut2 to provide some useful tools required by developers of business applications.

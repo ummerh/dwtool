@@ -1,0 +1,13 @@
+<!DOCTYPE validators PUBLIC "-//OpenSymphony Group//XWork Validator 1.0.2//EN" "http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<field name="connectionName">
+		<field-validator type="requiredstring">
+			<message>You must select a staging db</message>
+		</field-validator>
+	</field>
+	<field name="targetDb">
+		<field-validator type="requiredstring">
+			<message>You must select a target db</message>
+		</field-validator>
+	</field>
+</validators>

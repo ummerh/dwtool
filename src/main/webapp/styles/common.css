@@ -1,0 +1,41 @@
+body {
+	text-align: center;
+	font-family: Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.centerContainer {
+	text-align: left;
+}
+.leftAlign {
+	text-align: left;
+}
+
+table,td,th {	
+	border-collapse: collapse;
+}
+
+th {
+	text-align: center;
+}
+
+img {
+	border-style: none;
+}
+
+.banner {
+	background: black;
+	font-size: 2em;
+	color: white;
+	width: 100%;
+	text-align: center;
+}
+
+li,a {
+	list-style: none;
+	color: black;
+}
+
+td {
+	font-size: 12px;
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="TableLayout">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="tableName" type="xs:string" />
+				<xs:element name="tableLabel" type="xs:string" />
+				<xs:element name="tableEditable" type="xs:boolean" />
+				<xs:element name="tableDeletable" type="xs:boolean" />
+				<xs:element name="columns">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ColumnLayout"
+								type="ColumnLayout" maxOccurs="unbounded">
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:complexType name="ColumnLayout">
+		<xs:sequence>
+			<xs:element name="columnName" type="xs:string" />
+			<xs:element name="columnLabel" type="xs:string" />
+			<xs:element name="columnSearchable" type="xs:boolean" />
+			<xs:element name="columnEditable" type="xs:boolean" />
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

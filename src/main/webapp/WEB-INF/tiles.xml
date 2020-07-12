@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<tiles-definitions>
+	<definition name="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="title" value="Tool Box" />
+		<put-attribute name="header" value="/tiles/banner.jsp" />
+		<put-attribute name="menu" value="/tiles/common_menu.jsp" />
+		<put-attribute name="footer" value="/tiles/footer.jsp" />
+	</definition>
+	<definition name="connections" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/connections.jsp" />
+	</definition>
+	<definition name="all_tables" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/all_tables.jsp" />
+	</definition>
+	<definition name="dependency_map" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/dependency_map.jsp" />
+	</definition>
+	<definition name="ordered_tables" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/ordered_tables.jsp" />
+	</definition>
+	<definition name="test_connection" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/test_connection.jsp" />
+	</definition>
+	<definition name="data_status" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/data_status.jsp" />
+	</definition>
+	<definition name="new_connection" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/new_connection.jsp" />
+	</definition>
+	<definition name="ojb_files" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/ojb_files.jsp" />
+	</definition>
+	<definition name="exception" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/exception.jsp" />
+	</definition>
+	<definition name="er_connections" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/er_connections.jsp" />
+	</definition>
+	<definition name="ojb_db_diff" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/ojb_db_diff.jsp" />
+	</definition>
+	<definition name="data_input" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/data_input.jsp" />
+	</definition>
+	<definition name="autoupdate_tables" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/autoupdate_tables.jsp" />
+	</definition>
+	<definition name="batch_data_files" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/batch_data_files.jsp" />
+	</definition>
+	<definition name="data_validator" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/data_validator.jsp" />
+	</definition>
+	<definition name="editStep1" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/edit_step1.jsp" />
+	</definition>
+	<definition name="editStep2" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/edit_step2.jsp" />
+	</definition>
+	<definition name="addStep" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/add_step.jsp" />
+	</definition>
+	<definition name="db_comparator" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/db_comparator.jsp" />
+	</definition>
+	<definition name="rev_search" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/rev_search.jsp" />
+	</definition>
+	<definition name="rev_report" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/rev_report.jsp" />
+	</definition>
+	<definition name="exceldb" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/exceldb.jsp" />
+	</definition>
+	<definition name="docSearch" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/doc_search.jsp" />
+	</definition>
+	<definition name="excel_importer" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/excel_importer.jsp"/>
+	</definition>
+	<definition name="success_import_excel" extends="base-defn" template="/tiles/layout.jsp">
+		<put-attribute name="body" value="/jsp/success_import_excel.jsp"/>
+	</definition>
+</tiles-definitions>

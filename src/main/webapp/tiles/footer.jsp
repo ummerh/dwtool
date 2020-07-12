@@ -1,0 +1,1 @@
+<p class="footer">© 2008 - 2011 Michigan State University.<br>Supported browsers Chrome, Firefox</p>

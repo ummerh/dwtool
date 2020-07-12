@@ -1,0 +1,91 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.multipart.maxSize" value="56777216"></constant>
+	<include file="struts-default.xml" />
+	<!-- <constant name="struts.devMode" value="true" /> -->
+	<package name="db" extends="struts-default">
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+		<global-results>
+			<result name="exception" type="tiles">exception</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping exception="java.lang.Exception" result="exception" />
+		</global-exception-mappings>
+		<action name="connectionAction" class="com.lndb.dwtool.erm.manager.action.ConnectionActions">
+			<result name="success" type="tiles">connections</result>
+			<result name="input" type="tiles">new_connection</result>
+		</action>
+		<action name="ojbAction" class="com.lndb.dwtool.erm.manager.action.OjbActions">
+			<result name="success" type="tiles">ojb_files</result>
+		</action>
+		<action name="newConnectionSave" class="com.lndb.dwtool.erm.manager.action.SaveConnection">
+			<result name="success" type="tiles">connections</result>
+			<result name="input" type="tiles">new_connection</result>
+			<interceptor-ref name="validationWorkflowStack"></interceptor-ref>
+		</action>
+		<action name="TestConnection" method="execute" class="com.lndb.dwtool.erm.manager.action.TestConnection">
+			<result name="success" type="tiles">test_connection</result>
+		</action>
+		<action name="dbErAction" class="com.lndb.dwtool.erm.manager.action.DbErActions">
+			<result name="allTables" type="tiles">all_tables</result>
+			<result name="allTables2" type="dispatcher">/jsp/all_tables2.jsp</result>
+			<result name="loadOrder" type="tiles">ordered_tables</result>
+			<result name="dependencyMap" type="tiles">dependency_map</result>
+			<result name="dataStatus" type="tiles">data_status</result>
+			<result name="autoUpdateReferences" type="tiles">autoupdate_tables</result>
+		</action>
+		<action name="erAction" class="com.lndb.dwtool.erm.manager.action.ERActions">
+			<result name="success" type="tiles">er_connections</result>
+			<result name="ojbDbDiff" type="tiles">ojb_db_diff</result>
+		</action>
+		<action name="dataAction" class="com.lndb.dwtool.erm.manager.action.DataAction">
+			<result name="success" type="tiles">data_input</result>
+			<result name="input" type="tiles">data_input</result>
+		</action>
+		<action name="batchDataAction" class="com.lndb.dwtool.erm.manager.action.BatchDataAction">
+			<result name="success" type="tiles">batch_data_files</result>
+		</action>
+		<action name="dataValidatorAction" class="com.lndb.dwtool.erm.manager.action.DataValidatorAction">
+			<result name="input" type="tiles">data_validator</result>
+			<result name="dataStatus" type="tiles">data_status</result>
+		</action>
+		<action name="maintenanceAction" class="com.lndb.dwtool.erm.manager.action.MaintenanceAction">
+			<result name="editStep1" type="tiles">editStep1</result>
+			<result name="editStep2" type="tiles">editStep2</result>
+			<result name="addStep" type="tiles">addStep</result>
+		</action>
+
+		<action name="dBComparatorAction" class="com.lndb.dwtool.erm.manager.action.DBComparatorAction">
+			<result name="input" type="tiles">db_comparator</result>
+		</action>
+		<action name="revDataAction" class="com.lndb.dwtool.erm.manager.action.RevisionDataAction">
+			<result name="input" type="tiles">rev_search</result>
+			<result name="success" type="tiles">rev_search</result>
+			<result name="report" type="tiles">rev_report</result>
+			<result name="fisheye_page" type="dispatcher">/jsp/fisheye_page.jsp</result>
+		</action>
+		<action name="excelDBAction" class="com.lndb.dwtool.erm.manager.action.ExcelDBAction">
+			<result name="success" type="tiles">exceldb</result>
+		</action>
+		<action name="docSearchAction" class="demo.docsearch.DocSearchAction">
+			<result name="success" type="tiles">docSearch</result>
+		</action>
+		<action name="ooiAction" class="com.lndb.dwtool.erm.manager.action.OOIActions">
+			<result name="success" type="dispatcher">/demo/example1.html</result>
+		</action>
+		<action name="excelImportAction" class="com.lndb.dwtool.erm.manager.action.ExcelImportAction">
+			<interceptor-ref name="fileUpload">
+		        <param name="maximumSize">100097152</param>
+		        <!-- param name="allowedExtensions">.xls</param> -->
+	   	 	</interceptor-ref>
+   		 	<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result name="input" type="tiles">excel_importer</result>
+			<!-- result name="success" type="tiles">success_import_excel</result> -->
+		</action>
+	</package>
+</struts>

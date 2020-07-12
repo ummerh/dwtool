@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!DOCTYPE digester-rules 
+    PUBLIC "-//Jakarta Apache //DTD digester-rules XML V1.0//EN" 
+    "http://jakarta.apache.org/commons/digester/dtds/digester-rules.dtd">
+
+<digester-rules>
+	<pattern value="descriptor-repository">
+		<object-create-rule classname="java.util.ArrayList" />
+		<pattern value="class-descriptor">
+			<object-create-rule
+				classname="com.lndb.dwtool.erm.ojb.ClassDescriptor" />
+			<call-method-rule methodname="setTableName" paramcount="1"
+				paramtypes="java.lang.String" />
+			<call-param-rule paramnumber="0" attrname="table" />
+			<call-method-rule methodname="setClassName" paramcount="1"
+				paramtypes="java.lang.String" />
+			<call-param-rule paramnumber="0" attrname="class" />
+
+			<pattern value="field-descriptor">
+				<object-create-rule
+					classname="com.lndb.dwtool.erm.ojb.FieldDescriptor" />
+				<call-method-rule methodname="setName" paramcount="1"
+					paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0" attrname="name" />
+				<call-method-rule methodname="setColumn" paramcount="1"
+					paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0" attrname="column" />
+
+				<call-method-rule methodname="setConversion"
+					paramcount="1" paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0" attrname="conversion" />
+
+				<call-method-rule methodname="setIndex" paramcount="1"
+					paramtypes="java.lang.Boolean" />
+				<call-param-rule paramnumber="0" attrname="index" />
+
+				<call-method-rule methodname="setPrimaryKey"
+					paramcount="1" paramtypes="java.lang.Boolean" />
+				<call-param-rule paramnumber="0" attrname="primarykey" />
+
+				<call-method-rule methodname="setLocking" paramcount="1"
+					paramtypes="java.lang.Boolean" />
+				<call-param-rule paramnumber="0" attrname="locking" />
+
+				<call-method-rule methodname="setJdbcType"
+					paramcount="1" paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0" attrname="jdbc-type" />
+				<set-next-rule methodname="add" />
+			</pattern>
+			<pattern value="reference-descriptor">
+				<object-create-rule
+					classname="com.lndb.dwtool.erm.ojb.ReferenceDescriptor" />
+				<call-method-rule methodname="setName" paramcount="1"
+					paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0" attrname="name" />
+				<call-method-rule methodname="setProxy" paramcount="1"
+					paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0" attrname="proxy" />
+				<call-method-rule methodname="setAutoUpdate"
+					paramcount="1" paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0" attrname="auto-update" />
+				<call-method-rule methodname="setAutoDelete"
+					paramcount="1" paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0" attrname="auto-delete" />
+				<call-method-rule methodname="setAutoRetrieve"
+					paramcount="1" paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0"
+					attrname="auto-retrieve" />
+				<call-method-rule methodname="setClassReference"
+					paramcount="1" paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0" attrname="class-ref" />
+				<pattern value="foreignkey">
+					<call-method-rule methodname="addReferenceField"
+						paramcount="1" paramtypes="java.lang.String" />
+					<call-param-rule paramnumber="0"
+						attrname="field-ref" />
+				</pattern>
+				<set-next-rule methodname="add" />
+			</pattern>
+			<pattern value="collection-descriptor">
+				<object-create-rule
+					classname="com.lndb.dwtool.erm.ojb.CollectionDescriptor" />
+				<call-method-rule methodname="setName" paramcount="1"
+					paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0" attrname="name" />
+				<call-method-rule methodname="setProxy" paramcount="1"
+					paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0" attrname="proxy" />
+				<call-method-rule methodname="setAutoUpdate"
+					paramcount="1" paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0" attrname="auto-update" />
+				<call-method-rule methodname="setAutoDelete"
+					paramcount="1" paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0" attrname="auto-delete" />
+				<call-method-rule methodname="setAutoRetrieve"
+					paramcount="1" paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0"
+					attrname="auto-retrieve" />
+				<call-method-rule methodname="setElementClassReference"
+					paramcount="1" paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0"
+					attrname="element-class-ref" />
+				<call-method-rule methodname="setCollectionClass"
+					paramcount="1" paramtypes="java.lang.String" />
+				<call-param-rule paramnumber="0"
+					attrname="collection-class" />
+				<pattern value="inverse-foreignkey">
+					<call-method-rule methodname="addReferenceField"
+						paramcount="1" paramtypes="java.lang.String" />
+					<call-param-rule paramnumber="0"
+						attrname="field-ref" />
+				</pattern>
+				<set-next-rule methodname="add" />
+			</pattern>
+			<set-next-rule methodname="add" />
+		</pattern>
+	</pattern>
+</digester-rules>

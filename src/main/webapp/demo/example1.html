@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Spacetree - Tree Animation</title>
+
+<!-- CSS Files -->
+<link type="text/css" href="../js/jit/css/base.css" rel="stylesheet" />
+<link type="text/css" href="../js/jit/css/Spacetree.css"
+	rel="stylesheet" />
+
+<!--[if IE]><script language="javascript" type="text/javascript" src="../../Extras/excanvas.js"></script><![endif]-->
+
+<script language="javascript" type="text/javascript"
+	src="../js/jit/jit.js"></script>
+
+<!-- JIT Library File -->
+<script language="javascript" type="text/javascript"
+	src="../js/jquery/jquery.js"></script>
+
+<!-- Example File -->
+<script language="javascript" type="text/javascript" src="example1.js"></script>
+</head>
+
+<body>
+	<div id="container">
+		<div id="center-container">
+			<div>
+				<input type="text" id="orgCode" value="10002000" />
+				<button onclick='buildJsonTree($("#orgCode").val());'>View
+					Tree</button>
+			</div>
+			<br>
+			<div id="infovis"></div>
+		</div>
+
+		<div id="right-container">
+
+			<h4>Tree Orientation</h4>
+			<table>
+				<tr>
+					<td><label for="r-top">Top </label></td>
+					<td><input type="radio" id="r-top" name="orientation"
+						checked="checked" value="top" /></td>
+				</tr>
+				<tr>
+					<td><label for="r-left">Left </label></td>
+					<td><input type="radio" id="r-left" name="orientation"
+						value="left" /></td>
+				</tr>
+				<tr>
+					<td><label for="r-bottom">Bottom </label></td>
+					<td><input type="radio" id="r-bottom" name="orientation"
+						value="bottom" /></td>
+				</tr>
+				<tr>
+					<td><label for="r-right">Right </label></td>
+					<td><input type="radio" id="r-right" name="orientation"
+						value="right" /></td>
+				</tr>
+			</table>
+		</div>
+		<div id="log"></div>
+	</div>
+</body>
+</html>

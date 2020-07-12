@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+	<display-name>kuali-erd-web</display-name>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>/WEB-INF/SpringContext*.xml</param-value>
+	</context-param>
+	<context-param>
+		<param-name>org.apache.tiles.impl.BasicTilesContainer.DEFINITIONS_CONFIG</param-name>
+		<param-value>/WEB-INF/tiles.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>org.apache.tiles.web.startup.TilesListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.lndb.dwtool.erm.manager.web.SessionListener</listener-class>
+	</listener>
+	<listener>
+		<listener-class>com.lndb.dwtool.erm.manager.web.ContextListener</listener-class>
+	</listener>
+	<filter>
+		<filter-name>perfLogger</filter-name>
+		<filter-class>com.lndb.dwtool.erm.manager.web.PerfLogger</filter-class>
+	</filter>
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>perfLogger</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!-- DWR Configuration -->
+	<servlet>
+		<servlet-name>dwr-invoker</servlet-name>
+		<servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>CatalogSearcher</display-name>
+		<servlet-name>CatalogSearcher</servlet-name>
+		<servlet-class>demo.lucene.catalog.search.CatalogSearchServlet</servlet-class>
+	</servlet>
+
+	<servlet>
+		<servlet-name>perf4j</servlet-name>
+		<servlet-class>org.perf4j.log4j.servlet.GraphingServlet</servlet-class>
+		<!-- The graphNames parameter determines which graphs to expose. The param-value should be a comma-separated list of the appender NAMES as defined in the log4j.xml file. -->
+		<init-param>
+			<param-name>graphNames</param-name>
+			<param-value>graphExecutionTimes,graphExecutionTPS</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>dwr-invoker</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CatalogSearcher</servlet-name>
+		<url-pattern>/searchCatalog</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>perf4j</servlet-name>
+		<url-pattern>/perf4j/*</url-pattern>
+	</servlet-mapping>
+
+</web-app>
